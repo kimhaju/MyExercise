@@ -14,7 +14,11 @@
 		9A2B5FF7275B2D32005C3C5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A2B5FF6275B2D32005C3C5A /* GoogleService-Info.plist */; };
 		9A2B5FFD275B41D8005C3C5A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B5FFC275B41D8005C3C5A /* LoginView.swift */; };
 		9A2B5FFF275B41EF005C3C5A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B5FFE275B41EF005C3C5A /* HomeView.swift */; };
-		9A2B6001275B422A005C3C5A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B6000275B422A005C3C5A /* LoginViewModel.swift */; };
+		9A4D5CF7275DB2CF00716C3C /* HomeSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D5CF6275DB2CF00716C3C /* HomeSelectModel.swift */; };
+		9A4D5CFA275DB8E000716C3C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D5CF9275DB8E000716C3C /* LoginViewModel.swift */; };
+		9A7DA252275E0B23003B4A1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DA251275E0B23003B4A1D /* AppDelegate.swift */; };
+		9A7DA255275E1354003B4A1D /* GIDConfigurationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DA254275E1354003B4A1D /* GIDConfigurationExtensions.swift */; };
+		9A7DA257275E13CB003B4A1D /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DA256275E13CB003B4A1D /* UIApplicationExtensions.swift */; };
 		9A9042BB275B487800975C27 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9042BA275B487800975C27 /* GameController.framework */; };
 		F299B76BB39B78CBCD82FFC2 /* Pods_MyExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0391E2A367F3A96A3D3E2AF /* Pods_MyExercise.framework */; };
 /* End PBXBuildFile section */
@@ -30,7 +34,11 @@
 		9A2B5FF6275B2D32005C3C5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9A2B5FFC275B41D8005C3C5A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9A2B5FFE275B41EF005C3C5A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		9A2B6000275B422A005C3C5A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9A4D5CF6275DB2CF00716C3C /* HomeSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSelectModel.swift; sourceTree = "<group>"; };
+		9A4D5CF9275DB8E000716C3C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9A7DA251275E0B23003B4A1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9A7DA254275E1354003B4A1D /* GIDConfigurationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIDConfigurationExtensions.swift; sourceTree = "<group>"; };
+		9A7DA256275E13CB003B4A1D /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		9A9042BA275B487800975C27 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		9A9042BC275B487800975C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F0391E2A367F3A96A3D3E2AF /* Pods_MyExercise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyExercise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +87,9 @@
 		9A2B5FE7275B2583005C3C5A /* MyExercise */ = {
 			isa = PBXGroup;
 			children = (
+				9A7DA253275E132E003B4A1D /* Utils */,
+				9A4D5CF8275DB31E00716C3C /* JSON */,
+				9A4D5CF5275DB2A800716C3C /* Model */,
 				9A9042BC275B487800975C27 /* Info.plist */,
 				9A2B5FF9275B41A7005C3C5A /* ViewModel */,
 				9A2B5FF8275B419E005C3C5A /* View */,
@@ -111,9 +122,34 @@
 		9A2B5FF9275B41A7005C3C5A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9A2B6000275B422A005C3C5A /* LoginViewModel.swift */,
+				9A4D5CF9275DB8E000716C3C /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9A4D5CF5275DB2A800716C3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A4D5CF6275DB2CF00716C3C /* HomeSelectModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A4D5CF8275DB31E00716C3C /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		9A7DA253275E132E003B4A1D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9A7DA251275E0B23003B4A1D /* AppDelegate.swift */,
+				9A7DA254275E1354003B4A1D /* GIDConfigurationExtensions.swift */,
+				9A7DA256275E13CB003B4A1D /* UIApplicationExtensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		EAA535269D591455065CA759 /* Pods */ = {
@@ -240,11 +276,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7DA257275E13CB003B4A1D /* UIApplicationExtensions.swift in Sources */,
 				9A2B5FEB275B2583005C3C5A /* ContentView.swift in Sources */,
 				9A2B5FFF275B41EF005C3C5A /* HomeView.swift in Sources */,
+				9A4D5CFA275DB8E000716C3C /* LoginViewModel.swift in Sources */,
 				9A2B5FFD275B41D8005C3C5A /* LoginView.swift in Sources */,
-				9A2B6001275B422A005C3C5A /* LoginViewModel.swift in Sources */,
+				9A7DA252275E0B23003B4A1D /* AppDelegate.swift in Sources */,
 				9A2B5FE9275B2583005C3C5A /* MyExerciseApp.swift in Sources */,
+				9A7DA255275E1354003B4A1D /* GIDConfigurationExtensions.swift in Sources */,
+				9A4D5CF7275DB2CF00716C3C /* HomeSelectModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

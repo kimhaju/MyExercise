@@ -11,10 +11,9 @@ import GoogleSignIn
 
 struct LoginView: View {
     
+    @EnvironmentObject var viewModel: LoginViewModel
     @State var isLoding: Bool = false
-    
-    @AppStorage("log_Status") var log_Status = false
-    
+
     var body: some View {
         
         VStack {
@@ -40,7 +39,7 @@ struct LoginView: View {
                     .multilineTextAlignment(.center)
                 
                 Button{
-                    handleLogin()
+                    viewModel.signIn()
                 } label: {
                     HStack(spacing: 15){
                         Image("google").resizable().renderingMode(.template).aspectRatio(contentMode: .fit)
@@ -92,59 +91,7 @@ struct LoginView: View {
             }
         )
     }
-    
-    func handleLogin() {
-        
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-
-        // Create Google Sign In configuration object.
-        let config = GIDConfiguration(clientID: clientID)
-        
-        isLoding = true
-        
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: getRootViewController()) { [self] user, error in
-            
-            if let error = error {
-                isLoding = false
-               print(error.localizedDescription)
-               return
-             }
-
-             guard
-               let authentication = user?.authentication,
-               let idToken = authentication.idToken
-             else {
-                 isLoding = false
-               return
-             }
-
-             let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                            accessToken: authentication.accessToken)
-            
-            Auth.auth().signIn(with: credential) { result , error in
-                isLoding = false
-                
-                if let error = error {
-                   print(error.localizedDescription)
-                   return
-                 }
-                
-                //->유저 이름 보이게 하기
-                guard let user = result?.user else {
-                    return
-                }
-                
-                print(user.displayName ?? "성공했습니다!")
-                
-                withAnimation {
-                    log_Status = true
-                }
-            }
-        }
-    }
 }
-
-
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
@@ -152,22 +99,10 @@ struct LoginView_Previews: PreviewProvider {
     }
 }
 
+// MARK: - 확장 처리
 extension View{
     func getRect()->CGRect{
         return UIScreen.main.bounds
-    }
-    
-    // Retreiving RootView COntroller...
-    func getRootViewController()->UIViewController{
-        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{
-            return .init()
-        }
-        
-        guard let root = screen.windows.first?.rootViewController else{
-            return .init()
-        }
-        
-        return root
     }
 }
 
